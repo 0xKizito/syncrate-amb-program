@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syncrate Ambassador Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #000000 !important;
+        color: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    html {
+        background: #000000 !important;
+    }
+
+    /* Grid Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Header */
+    header {
+        padding: 32px 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 100px 0 80px;
+        position: relative;
+    }
+
+    h1 {
+        font-size: 72px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        margin-bottom: 32px;
+        line-height: 1.1;
+    }
+
+    .highlight {
+        color: #9ACD32;
+        display: block;
+    }
+
+    .subtext {
+        font-size: 22px;
+        color: #b0b0b0;
+        margin-bottom: 48px;
+        max-width: 700px;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 40px;
+        background: transparent;
+        color: #ffffff;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .cta-button:hover {
+        border-color: #9ACD32;
+        background: rgba(154, 205, 50, 0.1);
+    }
+
+    .cta-button::after {
+        content: '→';
+        font-size: 20px;
+    }
+
+    /* Content Sections */
+    .content-section {
+        padding: 100px 0;
+        position: relative;
+    }
+
+    .section-title {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #666666;
+        margin-bottom: 24px;
+        font-weight: 500;
+    }
+
+    .section-heading {
+        font-size: 48px;
+        font-weight: 400;
+        margin-bottom: 32px;
+        letter-spacing: -0.02em;
+    }
+
+    .section-description {
+        font-size: 20px;
+        color: #b0b0b0;
+        line-height: 1.7;
+        max-width: 900px;
+        font-weight: 400;
+    }
+
+    /* Grid Layout */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1px;
+        margin-top: 64px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .card {
+        background: #000000;
+        padding: 48px 32px;
+        transition: all 0.3s ease;
+        border: none;
+        position: relative;
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: transparent;
+        transition: background 0.3s ease;
+    }
+
+    .card:hover::before {
+        background: #9ACD32;
+    }
+
+    .card:hover {
+        background: rgba(154, 205, 50, 0.02);
+    }
+
+    .card-icon {
+        font-size: 40px;
+        margin-bottom: 24px;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+        filter: grayscale(0%);
+    }
+
+    .card h3 {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        letter-spacing: -0.01em;
+    }
+
+    .card p {
+        color: #888888;
+        line-height: 1.7;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* List Items */
+    .responsibilities-list {
+        margin-top: 48px;
+        max-width: 900px;
+    }
+
+    .list-item {
+        background: transparent;
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 32px 0 32px 32px;
+        margin-bottom: 0;
+        transition: all 0.3s ease;
+    }
+
+    .list-item:hover {
+        border-left-color: #9ACD32;
+        padding-left: 40px;
+    }
+
+    .list-item h4 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+    }
+
+    .list-item p {
+        color: #888888;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    /* Chain Logos Section */
+    .chains-section {
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .chains-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 64px;
+        margin-top: 48px;
+        flex-wrap: wrap;
+    }
+
+    .chain-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+    }
+
+    .chain-item:hover {
+        opacity: 1;
+    }
+
+    .chain-icon {
+        width: 64px;
+        height: 64px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+    }
+
+    .chain-name {
+        font-size: 14px;
+        color: #888888;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+        padding: 120px 0;
+        text-align: center;
+    }
+
+    .footer-cta h2 {
+        font-size: 56px;
+        margin-bottom: 24px;
+    }
+
+    .footer-cta .subtext {
+        margin: 0 auto 48px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 48px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    footer p {
+        color: #666666;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    footer a {
+        color: #9ACD32;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    footer a:hover {
+        opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 48px;
+        }
+
+        .subtext {
+            font-size: 18px;
+        }
+
+        .section-heading {
+            font-size: 36px;
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-cta h2 {
+            font-size: 40px;
+        }
+
+        .chains-grid {
+            gap: 40px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <header>
+        <div class="container">
+        </div>
+    </header>
+
+```
+<section class="hero">
+    <div class="container">
+        <h1>
+            Become a<br>
+            <span class="highlight">Syncrate Ambassador</span>
+        </h1>
+        <p class="subtext">Help shape the future of tokenized real-world assets and cross-chain capital movement.</p>
+        <a href="https://tally.so/r/yP4Nj6" class="cta-button">Apply via Tally</a>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <p class="section-title">About the Program</p>
+        <p class="section-description">Syncrate is building infrastructure that enables compliant, canonical RWAs to move seamlessly across chains. We're inviting a small group of early supporters to help us educate, test, and grow the ecosystem.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <p class="section-title">Your Role</p>
+        <div class="responsibilities-list">
+            <div class="list-item">
+                <h4>Share and explain Syncrate's vision and updates</h4>
+                <p>Help communicate our mission and latest developments to the broader community</p>
+            </div>
+            <div class="list-item">
+                <h4>Help onboard users and developers to the Syncrate ecosystem</h4>
+                <p>Guide new users and developers through our platform and tools</p>
+            </div>
+            <div class="list-item">
+                <h4>Contribute feedback, content, or introductions</h4>
+                <p>Provide valuable insights and help expand our network</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <p class="section-title">Benefits</p>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Early access to product & roadmap</h3>
+                <p>Be among the first to test new features and influence the direction of our platform</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🪙</div>
+                <h3>Future token rewards</h3>
+                <p>Earn contribution-based rewards for your impact within the community</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎁</div>
+                <h3>Exclusive merch & recognition</h3>
+                <p>Receive limited edition merchandise and special community recognition</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer-cta">
+    <div class="container">
+        <h2>Ready to join us?</h2>
+        <p class="subtext">Apply now to become part of our early ambassador cohort and help build the future of cross-chain RWAs.</p>
+        <a href="https://tally.so/r/yP4Nj6" class="cta-button">Apply via Tally</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Syncrate. <a href="https://syncrate.org">Visit our website</a></p>
+    </div>
+</footer>
+```
+
+</body>
+</html>
